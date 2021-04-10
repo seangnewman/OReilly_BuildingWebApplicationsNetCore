@@ -3,7 +3,7 @@ using SpyStore.Models.Entities;
 
 namespace SpyStore.DAL.EF
 {
-    class StoreContext : DbContext
+    public class StoreContext : DbContext
     {
         public StoreContext()
         {
@@ -20,7 +20,7 @@ namespace SpyStore.DAL.EF
             {
                 optionsBuilder.UseSqlServer(
                     @"Server=(localdb)\mssqllocaldb;Database=SpyStore;Trusted_Connection=True;MultipleActiveResultSets=true;"
-                        , b => b.MigrationsAssembly("SpyStore.Models")
+                        , b => b.MigrationsAssembly("SpyStore.DAL")
 
                         
                 );
