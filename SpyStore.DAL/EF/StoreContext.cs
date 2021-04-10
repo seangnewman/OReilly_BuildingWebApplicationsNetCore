@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SpyStore.Models.Entities;
 
 namespace SpyStore.DAL.EF
 {
@@ -19,9 +20,13 @@ namespace SpyStore.DAL.EF
             {
                 optionsBuilder.UseSqlServer(
                     @"Server=(localdb)\mssqllocaldb;Database=SpyStore;Trusted_Connection=True;MultipleActiveResultSets=true;"
-                        , options => options.ExecutionStrategy(c => new MyConnectionStrategy(c))
+                        , b => b.MigrationsAssembly("SpyStore.Models")
+
+                        
                 );
             }
         }
+
+        public DbSet<Category> Categories { get; set; }
     }
 }
