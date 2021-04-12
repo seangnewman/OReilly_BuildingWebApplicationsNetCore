@@ -30,6 +30,9 @@ namespace SpyStore.Models.Entities
         public string ProductImageThumb { get; set; }
 
         [DataType(DataType.Currency)]
+        public decimal UnitCost { get; set; }
+
+        [DataType(DataType.Currency)]
         public decimal CurrentPrice { get; set; }
 
         public int UnitsInStock { get; set; }
