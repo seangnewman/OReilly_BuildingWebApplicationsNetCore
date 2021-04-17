@@ -10,6 +10,8 @@ namespace SpyStore.Models.Entities
     public  class Order:EntityBase
     {
         public int CustomerId { get; set; }
+        
+
         [DataType(DataType.Date)]
         [Display(Name = "Date Ordered")]
         public DateTime OrderDate { get; set; }
@@ -20,5 +22,7 @@ namespace SpyStore.Models.Entities
         public Customer Customer { get; set; }
         [InverseProperty("Order")]
         public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+        [Display(Name ="Total")]
+        public decimal? OrderTotal { get; set; }
     }
 }

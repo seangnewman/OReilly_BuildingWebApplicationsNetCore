@@ -1,15 +1,13 @@
 ﻿using SpyStore.Models.Entities.Base;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SpyStore.DAL.Repos.Base
 {
     public interface IRepo<T> where T : EntityBase
     {
-         int Count { get; }
-         bool HasChanges { get;  }
-         T Find(int? id);
+        int Count { get; }
+        bool HasChanges { get; }
+        T Find(int? id);
         T GetFirst();
 
         IEnumerable<T> GetAll();
