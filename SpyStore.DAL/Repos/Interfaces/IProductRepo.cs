@@ -10,7 +10,7 @@ namespace SpyStore.DAL.Repos.Interfaces
     {
         IEnumerable<ProductAndCategoryBase> Search(string searchString);
         IEnumerable<ProductAndCategoryBase> GetAllWithCategoryName();
-        IEnumerable<ProductAndCategoryBase> GetProdctsForCategory(int id);
+        IEnumerable<ProductAndCategoryBase> GetProductsForCategory(int id);
         IEnumerable<ProductAndCategoryBase> GetFeaturedWithCategoryName();
         ProductAndCategoryBase GetOneWithCategoryName(int id);
     }

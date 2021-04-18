@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 
 namespace SpyStore.DAL.Repos
 {
@@ -18,9 +17,9 @@ namespace SpyStore.DAL.Repos
     {
         private readonly IProductRepo _productRepo;
 
-        public ShoppingCartRepo()
+        public ShoppingCartRepo(IProductRepo productRepo): base()
         {
-            
+            _productRepo = productRepo;
         }
         public ShoppingCartRepo(DbContextOptions<StoreContext> options, IProductRepo productRepo) : base(options)
         {
@@ -44,7 +43,7 @@ namespace SpyStore.DAL.Repos
 
             if (item == null)
             {
-                if(quantityInStock != null && entity.Quantity > quantityInStock.Value)
+                if (quantityInStock != null && entity.Quantity > quantityInStock.Value)
                 {
                     throw new InvalidQuantityException("Can't add more product than available in stock");
                 }
@@ -59,19 +58,19 @@ namespace SpyStore.DAL.Repos
 
         internal CartRecordWithProductInfo GetRecord(int customerId, ShoppingCartRecord scr, Product p, Category c)
             => new CartRecordWithProductInfo
-            { 
+            {
                 Id = scr.Id,
                 DateCreated = scr.DateCreated,
                 CustomerId = customerId,
                 Quantity = scr.Quantity,
                 ProductId = scr.ProductId,
                 Description = p.Description,
-                ModelName = p.ModelName, 
-                ModelNumber = p.ModelNumber, 
+                ModelName = p.ModelName,
+                ModelNumber = p.ModelNumber,
                 ProductImage = p.ProductImage,
                 ProductImageLarge = p.ProductImageLarge,
-                ProductImageThumb = p.ProductImageThumb, 
-                CurrentPrice = p.CurrentPrice, 
+                ProductImageThumb = p.ProductImageThumb,
+                CurrentPrice = p.CurrentPrice,
                 UnitsInStock = p.UnitsInStock,
                 CategoryName = c.CategoryName,
                 LineItemTotal = scr.Quantity * p.CurrentPrice,
@@ -86,7 +85,7 @@ namespace SpyStore.DAL.Repos
 
         public CartRecordWithProductInfo GetShoppingCartRecord(int customerId, int productId)
             => Table
-                    .Where( x => x.CustomerId == customerId && x.ProductId == productId)
+                    .Where(x => x.CustomerId == customerId && x.ProductId == productId)
                     .Include(x => x.Product)
                     .ThenInclude(p => p.Category)
                     .Select(x => GetRecord(customerId, x, x.Product, x.Product.Category))
@@ -125,7 +124,7 @@ namespace SpyStore.DAL.Repos
             {
                 Console.WriteLine(ex);
                 return -1;
-                 
+
             }
 
             return (int)orderIdParam.Value;

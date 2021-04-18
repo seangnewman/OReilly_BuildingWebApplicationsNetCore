@@ -4,6 +4,10 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <Authors>NewManuevers</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Models for the SpyStore Data Access Library</Description>
+    <Copyright>Copyright 2021 (c) NewManuevers. All rights reserved.</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

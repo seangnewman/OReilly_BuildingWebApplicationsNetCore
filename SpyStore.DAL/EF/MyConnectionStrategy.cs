@@ -3,7 +3,7 @@ using System;
 
 namespace SpyStore.DAL.EF
 {
-    class MyConnectionStrategy : ExecutionStrategy
+    public class MyConnectionStrategy : ExecutionStrategy
     {
         public MyConnectionStrategy(ExecutionStrategyDependencies context) :
             base(context, ExecutionStrategy.DefaultMaxRetryCount, ExecutionStrategy.DefaultMaxDelay)

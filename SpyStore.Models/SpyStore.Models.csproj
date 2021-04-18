@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Copyright>Copyright 2021 (c) NewManueverse. All rights reserved.</Copyright>
+    <Authors>NewManuevers</Authors>
     
   </PropertyGroup>
 

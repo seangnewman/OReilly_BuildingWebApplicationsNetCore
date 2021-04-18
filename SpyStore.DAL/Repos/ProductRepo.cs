@@ -63,7 +63,8 @@ namespace SpyStore.DAL.Repos
                                                                                                                                .Include(p => p.Category)
                                                                                                                                .Select(item => GetRecord(item, item.Category))
                                                                                                                                .SingleOrDefault();
-        public IEnumerable<ProductAndCategoryBase> GetProdctsForCategory(int id) => Table
+   
+        public IEnumerable<ProductAndCategoryBase> GetProductsForCategory(int id) => Table
                                                                                                                                                 .Where(p => p.CategoryId == id)
                                                                                                                                                 .Include(p => p.Category)
                                                                                                                                                 .Select(item => GetRecord(item, item.Category))
