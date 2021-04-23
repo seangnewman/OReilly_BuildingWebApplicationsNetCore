@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SpyStore.DAL.Repos.Interfaces
 {
-    interface ICustomerRepo:IRepo<Customer>
+    public interface ICustomerRepo:IRepo<Customer>
     {
     }
 }
